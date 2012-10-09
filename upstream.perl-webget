@@ -1,0 +1,2 @@
+tag1: duff
+  http://packages.debian.org/unstable/duff pregexp:orig.tar.gz file:duff_0.5.2.orig.tar.bz2 new: x:
