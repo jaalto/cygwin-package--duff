@@ -8,10 +8,10 @@ files. It attempts to be usably fast and uses the SHA family of
 message digests as a part of the comparisons.
 
 Runtime requirements:
-  cygwin
+  libintl8
 
 Build requirements:
-  cygwin
+  gettext
 
 Canonical homepage:
   http://freecode.com/projects/duff
