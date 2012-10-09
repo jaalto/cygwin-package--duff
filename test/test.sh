@@ -17,7 +17,7 @@ esac
 
 AtExit ()
 {
-    rm -f "$TMPBASE"*
+    rm -rf "$TMPBASE"
 }
 
 Run ()
@@ -31,8 +31,21 @@ trap AtExit 0 1 2 3 15
 
 # #######################################################################
 
-file="$CURDIR/example.dat"
+mkdir -p "$TMPBASE"
+cd "$TMPBASE"
 
-Run "%% TEST <case>:" echo $file
+file1="example.1"
+file2="example.2"
+link="example.3"
+
+echo test > "$file1"
+echo test > "$file2"
+ln -s "$file2" "$link"
+
+
+Run "%% TEST files:" duff -e "$file1" "$file2"
+Run "%% TEST symlinks:" duff -L "$file2" "$link"
+
+Run "%% TEST directory:" duff -r "."
 
 # End of file
